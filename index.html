@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Message for You ❤️</title>
+    <style>
+        body {
+            background-color: #fff0f3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+        }
+        h1 { color: #d63384; margin-bottom: 30px; }
+        .buttons { display: flex; gap: 20px; }
+        button {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        #yesBtn { background-color: #ff4d6d; color: white; box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4); }
+        #noBtn { background-color: #ced4da; color: #495057; position: absolute; }
+    </style>
+</head>
+<body>
+    <h1 id="question">Will you be my Valentine? 🌹</h1>
+    <div class="buttons">
+        <button id="yesBtn" onclick="celebrate()">YES!</button>
+        <button id="noBtn" onmouseover="moveButton()">No</button>
+    </div>
+
+    <script>
+        function moveButton() {
+            const x = Math.random() * (window.innerWidth - 100);
+            const y = Math.random() * (window.innerHeight - 100);
+            const btn = document.getElementById('noBtn');
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+        }
+
+        function celebrate() {
+            document.getElementById('question').innerHTML = "I love you! Can't wait! ❤️✨";
+            document.getElementById('noBtn').style.display = 'none';
+            document.getElementById('yesBtn').style.transform = 'scale(1.5)';
+            alert("She said YES! 🥂");
+        }
+    </script>
+</body>
+</html>
