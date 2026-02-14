@@ -3,55 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Special Message for You ❤️</title>
-    <style>
-        body {
-            background-color: #fff0f3;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            overflow: hidden;
-        }
-        h1 { color: #d63384; margin-bottom: 30px; }
-        .buttons { display: flex; gap: 20px; }
-        button {
-            padding: 15px 30px;
-            font-size: 1.2rem;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        #yesBtn { background-color: #ff4d6d; color: white; box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4); }
-        #noBtn { background-color: #ced4da; color: #495057; position: absolute; }
-    </style>
+    <title>A Special Message for Daffydde</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1 id="question">Will you be my Valentine? 🌹</h1>
-    <div class="buttons">
-        <button id="yesBtn" onclick="celebrate()">YES!</button>
-        <button id="noBtn" onmouseover="moveButton()">No</button>
+
+    <button id="darkModeToggle" class="dark-mode-toggle" title="Toggle Dark Mode">🌙</button>
+
+    <div class="container">
+
+        <div id="page1" class="page active">
+            <div class="login-box">
+                <h1>Welcome Daffydde to 2026 Valentine's Proposal</h1>
+                <p>Please enter the access Date:</p>
+                <input type="text" id="passInput" placeholder="MM/DD/YYYY" />
+                <br>
+                <button class="btn-main" onclick="checkPassword()">Enter</button>
+                <p id="errorMsg" style="color: red; display: none; margin-top: 15px;">Incorrect Date. Try again.</p>
+            </div>
+        </div>
+
+        <div id="page2" class="page">
+            
+            <div class="header-banner">
+                <img src="image/b08ae42c-2ea0-46e4-8636-56e709049762.JPG" alt="Header Background"> 
+                <h1>Be My Valentine Presentation</h1>
+            </div>
+
+            <div class="grid-container">
+                <div class="grid-item">
+                    <img src="image/IMG_1037.JPG" class="grid-img" alt="Memory 1">
+                    <div class="grid-caption"> Distance didn't stop us from loving each other. </div>
+                </div>
+                <div class="grid-item">
+                    <img src="image/c07a3ccf-21d5-4a5e-916b-053d1df3d289.JPG" class="grid-img" alt="Memory 2">
+                    <div class="grid-caption"> We could never be awkward with each other.</div>
+                </div>
+                <div class="grid-item">
+                    <img src="image/IMG_0973.JPG" class="grid-img" alt="Memory 3">
+                    <div class="grid-caption">Every party is a blast when we’re together.</div>
+                </div>
+                <div class="grid-item">
+                    <img src="image/IMG_5759.JPG" class="grid-img" alt="Memory 4">
+                    <div class="grid-caption">We've always been there for each other.</div>
+                </div>
+                <div class="grid-item">
+                    <img src="image/IMG_4026.jpeg" class="grid-img" alt="Memory 5">
+                    <div class="grid-caption">We always make the best of every moment together.</div>
+                </div>
+                <div class="grid-item">
+                    <img src="image/d2af1c66-49a3-46ec-8a47-f3822e007b4f.JPG" class="grid-img" alt="Memory 6">
+                    <div class="grid-caption">I will always make time for you</div>
+                </div>
+                <div class="grid-item">
+                    <img src="image/IMG_8745.jpeg" class="grid-img" alt="Memory 7">
+                    <div class="grid-caption">I've got style, you've got style, we might as well make this permanent.</div>
+                </div>
+                <div class="grid-item">
+                    <img src="image/62770501424__98997A0C-A144-4D76-B566-59555F9A784E.jpeg" class="grid-img" alt="Memory 8">
+                    <div class="grid-caption">Trying new food is our hobby. Are you down to do it for eternity</div>
+                </div>
+                <div class="grid-item">
+                    <img src="image/d0abfd00-61d3-4627-8ead-3479c99196f1.JPG" class="grid-img" alt="Memory 9">
+                    <div class="grid-caption">There’s no stopping us from making memories.</div>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <video class="custom-video" controls>
+                    <source src="image/filtered-2C358E7B-5D90-429C-85F1-42727F250D65.MOV" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                
+                <div class="policies" onclick="alert('Policy: You must promise to be happy forever!')">Read Terms & Policies</div>
+                
+                <div class="script-text">
+                    Looking back at everything we’ve been through, I’m so proud of us. We proved that miles couldn’t 
+                    keep us apart, and now I get to be with the one person I’m never awkward around. Whether we’re 
+                    lighting up a party, looking like the best-dressed couple in the room, or just hunting for our 
+                    next favorite meal, life is just better with you. You’re my stylish partner in crime and my biggest 
+                    supporter, and I promise to always make time for us. I’m ready to keep making memories and trying 
+                    new dishes with you for eternity
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn-main" style="background-color: #6c757d;" onclick="alert('You can\'t disagree with destiny! 😉')">Disagree</button>
+                    <button class="btn-main" onclick="goToQuestion()">Agree</button>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <script>
-        function moveButton() {
-            const x = Math.random() * (window.innerWidth - 100);
-            const y = Math.random() * (window.innerHeight - 100);
-            const btn = document.getElementById('noBtn');
-            btn.style.left = x + 'px';
-            btn.style.top = y + 'px';
-        }
+    <div id="page3" class="page">
+        <h1>Will you be my Valentine? 🌹</h1>
+        <div style="display: flex; gap: 50px; align-items: center; justify-content: center; height: 200px; width: 100%;">
+            <button id="yesEmoji" class="emoji-btn" onclick="celebrate()">😍</button>
+            <button id="noEmoji" class="emoji-btn" onmouseover="moveButton()">😠</button>
+        </div>
+    </div>
 
-        function celebrate() {
-            document.getElementById('question').innerHTML = "I love you! Can't wait! ❤️✨";
-            document.getElementById('noBtn').style.display = 'none';
-            document.getElementById('yesBtn').style.transform = 'scale(1.5)';
-            alert("She said YES! 🥂");
-        }
-    </script>
+    <div id="page4" class="page">
+        <div class="container">
+            <div class="flower-display">
+                <img src="image/IMG_3788.JPG" alt="Beautiful Flowers">
+            </div>
+            
+            <h1>I Love You! ❤️✨</h1>
+            
+            <div class="date-timeline">
+                02 - 14 - 2026 at 7 PM
+            </div>
+            <div class="names">
+                Dawson Dorcenat &mdash; Daffyde St-Preux
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
